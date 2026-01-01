@@ -1,0 +1,5 @@
+# Librerías necesarias
+fastapi
+uvicorn
+sqlalchemy
+pydantic
