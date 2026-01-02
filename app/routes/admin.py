@@ -1,4 +1,4 @@
 from fastapi import APIRouter
 
 router = APIRouter()
-# Por ahora placeholder
+# Placeholder para futuras rutas de admin y auth
