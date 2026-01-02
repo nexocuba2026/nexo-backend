@@ -1,21 +1,9 @@
 from fastapi import FastAPI
 from app.database import engine
-from app.models import User, Service, Contact, Category
-
-app = FastAPI(title="neXo Cuba API")
-
-# Crear las tablas en la base de datos
-User.metadata.create_all(bind=engine)
-Service.metadata.create_all(bind=engine)
-Contact.metadata.create_all(bind=engine)
-Category.metadata.create_all(bind=engine)
-
-@app.get("/")
-def root():
-    return {"mensaje": "API neXo Cuba funcionando correctamente"}
-from fastapi import FastAPI
-from app.database import engine
-from app.models import User, Service, Contact, Category
+from app.models.user import User
+from app.models.service import Service
+from app.models.contact import Contact
+from app.models.category import Category
 from app.routes import services, contacts, admin, auth
 
 app = FastAPI(title="neXo Cuba API")
