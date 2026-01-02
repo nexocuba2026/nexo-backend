@@ -20,7 +20,11 @@ def list_services(db: Session = Depends(get_db)):
     return services
 
 @router.post("/", response_model=ServiceResponse)
-def create_service(service: ServiceCreate, db: Session = Depends(get_db)):
+def create_service(
+    service: ServiceCreate,
+    db: Session = Depends(get_db),
+    x_admin_key: str = Depends(verify_admin)
+):
     db_service = Service(**service.dict())
     db.add(db_service)
     db.commit()
