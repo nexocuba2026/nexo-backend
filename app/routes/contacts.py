@@ -23,6 +23,9 @@ def create_contact(contact: ContactCreate, db: Session = Depends(get_db)):
     return db_contact
 
 @router.get("/", response_model=list[ContactResponse])
-def list_contacts(db: Session = Depends(get_db)):
+def list_contacts(
+    db: Session = Depends(get_db),
+    x_admin_key: str = Depends(verify_admin)
+):
     contacts = db.query(Contact).all()
     return contacts
