@@ -1,3 +1,4 @@
+from app.routes.admin import verify_admin
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.database import SessionLocal
